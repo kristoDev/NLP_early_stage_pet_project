@@ -15,27 +15,25 @@ data = response.json()
 authorsAndFeeds = {}
 
 
-# to remove html tags
-def removeTags(here):
-    for each_p in here.find_all('p'):
-        return each_p.string
-
 
 for each in data['items']:
     author = each['author']
     newsFeed = each['description']
     authorsAndFeeds.update({author: newsFeed})
 
+    
 
-#removing html tags within our dict
+# now removing html tags to each news feed
 for eachKey, eachValue in authorsAndFeeds.items():
+    valueToClean = BeautifulSoup(eachValue,'lxml')
 
-    cleanedValue = removeTags(
-        BeautifulSoup(eachValue,'lxml')
-        )
+    stor_sentences =[]
+
+    for each_p in valueToClean.find_all('p'):
+        stor_sentences.append(each_p.string)
+        authorsAndFeeds[eachKey] = stor_sentences
+
+
         
-    authorsAndFeeds[eachKey] = cleanedValue
-
-
-
+#test output 
 print(authorsAndFeeds)
