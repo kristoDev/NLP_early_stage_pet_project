@@ -30,7 +30,7 @@ for eachKey, eachValue in authorsAndFeeds.items():
     stored_sentences =[]
 
     for each_p in valueToClean.find_all('p'):
-        stor_sentences.append(each_p.string)
+        stored_sentences.append(each_p.string)
         authorsAndFeeds[eachKey] = stored_sentences
 
 
