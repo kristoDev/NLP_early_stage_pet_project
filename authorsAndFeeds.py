@@ -27,11 +27,11 @@ for each in data['items']:
 for eachKey, eachValue in authorsAndFeeds.items():
     valueToClean = BeautifulSoup(eachValue,'lxml')
 
-    stor_sentences =[]
+    stored_sentences =[]
 
     for each_p in valueToClean.find_all('p'):
         stor_sentences.append(each_p.string)
-        authorsAndFeeds[eachKey] = stor_sentences
+        authorsAndFeeds[eachKey] = stored_sentences
 
 
         
