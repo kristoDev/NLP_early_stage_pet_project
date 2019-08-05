@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 
-
+#test link
 newsFeedLink = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.theguardian.com%2Fworld%2Frss"
 
 
@@ -40,4 +40,4 @@ def checkNews(myUrl):
 
         
 #test output 
-#print(checkNews(newsFeedLink))
+print(checkNews(newsFeedLink))
